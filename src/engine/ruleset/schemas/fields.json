@@ -10765,12 +10765,55 @@
             ]
         },
         "wazuh.queue": {
-            "description": "Module: ecs\nIndexerType: long\nArray: False\n\nA char indicating the Wazuh protocol queue of the eventes ingested",
+            "description": "Module: ecs\nIndexerType: long\nArray: False\n\nQueue part of the OSSEC message format",
             "type": [
                 "number",
                 "string"
             ],
             "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.source": {
+            "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nWazuh source that ingested the event",
+            "type": [
+                "string"
+            ]
+        },
+        "wazuh.location": {
+            "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nLocation part of the OSSEC message format",
+            "type": [
+                "string"
+            ]
+        },
+        "wazuh.message": {
+            "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nMessage part of the OSSEC message format",
+            "type": [
+                "string"
+            ]
+        },
+        "wazuh.origin": {
+            "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nOrigin part of the OSSEC message format",
+            "type": [
+                "string"
+            ]
+        },
+        "wazuh.registered_ip": {
+            "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nRegistered IP part of the OSSEC message format",
+            "type": [
+                "string"
+            ]
+        },
+        "wazuh.decoders": {
+            "description": "Module: ecs\nIndexerType: keyword\nArray: True\n\nTrace of the decoders applied to the event",
+            "type": [
+                "string",
+                "array"
+            ],
+            "pattern": "^[\\+\\$].+",
+            "items": {
+                "type": [
+                    "string"
+                ]
+            }
         },
         "auditd.log.new_auid": {
             "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nFor login events this is the new audit ID. The audit ID can be used to trace future events to the user even if their identity changes (like becoming root).\n",

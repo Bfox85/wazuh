@@ -7533,6 +7533,24 @@
                 "properties": {
                     "queue": {
                         "type": "long"
+                    },
+                    "source": {
+                        "type": "keyword"
+                    },
+                    "location": {
+                        "type": "keyword"
+                    },
+                    "message": {
+                        "type": "keyword"
+                    },
+                    "origin": {
+                        "type": "keyword"
+                    },
+                    "registered_ip": {
+                        "type": "keyword"
+                    },
+                    "decoders": {
+                        "type": "keyword"
                     }
                 }
             },

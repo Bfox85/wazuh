@@ -1,20 +1,21 @@
 name: environment/wazuh/0
 
 decoders:
-  # First level decoders by queue
-  - decoder/queue-syscollector/0
-  - decoder/queue-sca/0
-  - decoder/queue-fim/0
-  - decoder/queue-syslog/0
-  - decoder/queue-dbsync/0
-  - decoder/queue-localfile/0
-  - decoder/queue-rootcheck/0
-  - decoder/queue-ciscat/0
+  # First level decoders (internal)
+  - decoder/internal-ossec-message/0
+  - decoder/internal-localfile/0
+  - decoder/internal-rsyslog/0
+  - decoder/internal-hostinfo/0
+  - decoder/internal-dbsync/0
+  - decoder/internal-syscheck/0
+  - decoder/internal-rootcheck/0
+  - decoder/internal-syscollector/0
+  - decoder/internal-ciscat/0
+  - decoder/internal-windows/0
+  - decoder/internal-sca/0
+  - decoder/internal-secure/0
 
-  # General format decoders
-  - decoder/json/0
-
-  # Internal decoders
+  # Wazuh agent decoders (internal)
   - decoder/dbsync/0
   - decoder/fim/0
   - decoder/fim-event/0
@@ -58,39 +59,12 @@ decoders:
   - decoder/syscollector-program/0
   - decoder/syscollector-program-del/0
   - decoder/syscollector-program-save/0
-
-  # Enrich events with host info
-  - decoder/agent-event-enrichment/0
   - decoder/dbsync-host-data/0
   - decoder/kvdb-agent-update/0
   - decoder/syscollector-dbsync-host-data/0
 
-  # Service decoders
-  - decoder/syslog/0
-  - decoder/sonicwall-firewall/0
-  # TODO uncomment when the fields are added to the schema
-  # - decoder/sonicwall-firewall-generated/0
-  - decoder/redis/0
-
-  # Postgresql decoders
-  - decoder/postgresql-csv/0
-  - decoder/postgresql-csv-msg-parse/0
-
-  # NGINX decoder
-  - decoder/nginx-access-base/0
-  - decoder/nginx-access/0
-  - decoder/nginx-error/0
-
-  # TODO uncomment when the fields are added to the schema
-  # AWS decoder
-  - decoder/aws/0
-  - decoder/aws-s3/0
-  - decoder/aws-cloudtrail/0
-  - decoder/aws-elb/0
-
-  # Auditd
-  - decoder/auditd/0
-  - decoder/auditd-kv/0
+  # Integration decoders
+  - decoder/base/0
 
 outputs:
   - output/file-output/0
