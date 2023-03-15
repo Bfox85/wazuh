@@ -64,7 +64,9 @@ decoders:
   - decoder/syscollector-dbsync-host-data/0
 
   # Integration decoders
-  - decoder/base/0
+  - decoder/integrations/0
+  - decoder/apache-access/0
+  - decoder/apache-error/0
 
 outputs:
   - output/file-output/0
