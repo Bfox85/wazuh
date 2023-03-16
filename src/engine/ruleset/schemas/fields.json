@@ -10959,6 +10959,78 @@
                 "string"
             ]
         },
+        "wazuh.syscollector.hardware": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the hardware fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.hotfix": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the hotfix fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.netinfo.addr": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the address fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.netinfo.iface": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the network interface fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.netinfo.proto": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the network protocol fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.os": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the os fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.port": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the port fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.process": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the process fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
+        "wazuh.syscollector.program": {
+            "description": "Module: ecs\nIndexerType: object\nArray: False\n\nObject that contains the program fields from a syscollector event",
+            "type": [
+                "object",
+                "string"
+            ],
+            "pattern": "^[\\+\\$].+"
+        },
         "auditd.log.new_auid": {
             "description": "Module: ecs\nIndexerType: keyword\nArray: False\n\nFor login events this is the new audit ID. The audit ID can be used to trace future events to the user even if their identity changes (like becoming root).\n",
             "type": [
