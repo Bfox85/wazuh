@@ -2,6 +2,7 @@
 
 #include <fmt/format.h>
 #include <json/json.hpp>
+#include <variant>
 
 namespace api::metrics::cmds
 {
@@ -26,15 +27,7 @@ api::CommandFn metricsDumpCmd()
 {
     return [](const json::Json& params) -> api::WazuhResponse
     {
-        auto result = Metrics::instance().getDataHub()->dumpCmd();
-        if (std::holds_alternative<base::Error>(result))
-        {
-            return api::WazuhResponse {std::get<base::Error>(result).message};
-        }
-
-        return api::WazuhResponse {
-            std::get<json::Json>(result),
-            fmt::format("Metrics successfully dumped")};
+        return api::WazuhResponse("OK");
     };
 }
 
@@ -42,22 +35,7 @@ api::CommandFn metricsGetCmd()
 {
     return [](const json::Json& params) -> api::WazuhResponse
     {
-        // Get Metrics's name parameter
-        const auto [ok, response] = getNameOrError(params);
-        if (!ok)
-        {
-            return api::WazuhResponse {response};
-        }
-
-        auto result = Metrics::instance().getDataHub()->getCmd(response);
-        if (std::holds_alternative<base::Error>(result))
-        {
-            return api::WazuhResponse {std::get<base::Error>(result).message};
-        }
-
-        return api::WazuhResponse {
-            std::get<json::Json>(result),
-            fmt::format("Metric successfully obtained")};
+        return api::WazuhResponse("OK");
     };
 }
 
@@ -65,17 +43,6 @@ api::CommandFn metricsEnableCmd()
 {
     return [](const json::Json& params) -> api::WazuhResponse
     {
-        auto name = params.getString("/nameInstrument");
-        auto state = params.getBool("/enableState");
-        try
-        {
-            Metrics::instance().setEnableInstrument(name.value(), state.value());
-        }
-        catch (const std::exception& e)
-        {
-            return api::WazuhResponse(e.what());
-        }
-
         return api::WazuhResponse("OK");
     };
 }
@@ -84,8 +51,7 @@ api::CommandFn metricsListCmd()
 {
     return [](const json::Json& params) -> api::WazuhResponse
     {
-        auto result = Metrics::instance().getInstrumentsList();
-        return api::WazuhResponse(result.str());
+        return api::WazuhResponse("OK");
     };
 }
 
@@ -93,7 +59,6 @@ api::CommandFn metricsTestCmd()
 {
     return [](const json::Json& params) -> api::WazuhResponse
     {
-        Metrics::instance().generateCounterToTesting();
         return api::WazuhResponse("OK");
     };
 }

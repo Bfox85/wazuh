@@ -3,7 +3,6 @@
 
 #include <memory>
 #include "api/registry.hpp"
-#include "metrics.hpp"
 
 namespace api::metrics::cmds
 {

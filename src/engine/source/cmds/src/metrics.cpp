@@ -9,7 +9,7 @@
 #include <api/wazuhResponse.hpp>
 #include <json/json.hpp>
 #include <logging/logging.hpp>
-#include <metrics/include/metrics.hpp>
+#include <metrics/metricsManager.hpp>
 
 #include "apiclnt/client.hpp"
 #include "base/utils/getExceptionStack.hpp"
